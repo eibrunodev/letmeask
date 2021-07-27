@@ -1,11 +1,24 @@
+
+
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImage from '../assets/images/logo.svg';
 import googleIconImage from '../assets/images/google-icon.svg';
 
+
+
 import '../styles/auth.scss';
 import{Button} from '../components/Button';
+import { useHistory } from 'react-router-dom';
+import {auth,firebase} from '../services/firebase'
 
 export function Home() {
+
+  const history = useHistory();
+ 
+  function handleCreateRoom(){
+     history.push('/rooms/new');
+  }
+
   return(
     <div id="page-auth">
       <aside>
@@ -14,9 +27,10 @@ export function Home() {
         <p>Tire as dúvidas da sua audiência em tempo real</p>
       </aside>  
           <main>
+            
             <div className="main-content">
               <img src={logoImage} alt="Logo da empresa"/>
-              <button className="create-room">
+              <button onClick={handleCreateRoom} className="create-room">
               <img src={googleIconImage} alt="Logo do google"/>
                 Crie sua sala com o Google 
               </button>
