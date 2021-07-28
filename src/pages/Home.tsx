@@ -9,14 +9,19 @@ import googleIconImage from '../assets/images/google-icon.svg';
 import '../styles/auth.scss';
 import{Button} from '../components/Button';
 import { useHistory } from 'react-router-dom';
-import {auth,firebase} from '../services/firebase'
+import { useAuth } from '../hocks/useAth';
 
 export function Home() {
 
   const history = useHistory();
- 
-  function handleCreateRoom(){
+  const {user,signInWithGoogle} = useAuth();
+  
+  async function handleCreateRoom(){
+    if(!user){
+    await signInWithGoogle()
+    }
      history.push('/rooms/new');
+     
   }
 
   return(

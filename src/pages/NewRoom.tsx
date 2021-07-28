@@ -5,14 +5,16 @@ import logoImage from '../assets/images/logo.svg';
 import '../styles/auth.scss';
 import{Button} from '../components/Button';
 import { Link } from 'react-router-dom';
-
+//import { useAuth } from '../hocks/useAth';
 
 export function NewRoom() {
 
+  //const {user} = useAuth();
   return(
     <div id="page-auth">
       <aside>
         <img src={illustrationImg} alt="ilustração simbolizando perguntas e respostas" />
+        
         <strong>Crie salas de Q&amp;A ao-vivo </strong>
         <p>Tire as dúvidas da sua audiência em tempo real</p>
       </aside>  
